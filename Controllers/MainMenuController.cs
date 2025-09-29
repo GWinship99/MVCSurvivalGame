@@ -4,11 +4,11 @@ using MVCSurvivalGame.Models;
 
 namespace MVCSurvivalGame.Controllers
 {
-    public class HomeController : Controller
+    public class MainMenuController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<MainMenuController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public MainMenuController(ILogger<MainMenuController> logger)
         {
             _logger = logger;
         }

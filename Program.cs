@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MVCSurvivalGame.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MVCSurvivalGameContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCSurvivalGameContext") ?? throw new InvalidOperationException("Connection string 'MVCSurvivalGameContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,7 +27,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=MainMenu}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
